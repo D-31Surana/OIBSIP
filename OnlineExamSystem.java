@@ -1,3 +1,4 @@
+package disha;
 import java.util.Scanner;
 
 class User {
@@ -24,7 +25,7 @@ class Question {
         this.questionText = questionText;
         this.options = options;
         this.correctOption = correctOption;
-    }
+   }
 }
 
 class Exam {
@@ -55,7 +56,7 @@ class Exam {
 
             if (userAnswer - 'A' == questions[i].correctOption) {
                 System.out.println("Correct!\n");
-                score++;
+ score++;
             } else {
                 System.out.println("Incorrect. The correct answer is: " + (char) ('A' + questions[i].correctOption) + "\n");
             }
@@ -64,7 +65,6 @@ class Exam {
         System.out.println("Exam completed! Your score: " + score + "/" + totalQuestions);
     }
 }
-
 public class OnlineExamSystem {
     static User currentUser;
 
@@ -86,15 +86,17 @@ public class OnlineExamSystem {
         String newPassword = scanner.nextLine();
 
         currentUser.updateProfile(newUsername, newPassword);
-
-        // Conduct exam
+ // Conduct exam
         Question[] questions = {
                 new Question("What is the capital of France?", new String[]{"Paris", "Berlin", "London", "Rome"}, 0),
-                new Question("Which programming language is Java?", new String[]{"C++", "Java", "Python", "Ruby"}, 1),
-                // Add more questions as needed
+                new Question("What is SI unit of temperature?", new String[]{"Degree Fahrenheit", "Candela", "Kelvin", "Degree Celsius"}, 2),
+                new Question("Which is a reserved word in the Java programming language?", new String[]{"method", "native", "subclasses", "array"}, 1),
+                new Question("By what percentage has the Indian government slashed the import duty on parts used for mobile phone manufacturing?", new String[]{"8%", "12%", "10%", "15%"}, 2),
+                new Question("The pass located at the southern end of the Nilgiri Hills in south India is called ____" , new String[]{"the Palghat gap" , "the Bhorghat pass", "the Thalgat pass", "the Bolan pass"}, 0),
+
         };
 
-        Exam exam = new Exam(questions, 20); // 20 minutes time limit
+        Exam exam = new Exam(questions, 10); // 10 minutes time limit
         exam.conductExam();
-    }
+    }
 }
